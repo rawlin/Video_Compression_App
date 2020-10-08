@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/selectVideoFragment">
+
+    <fragment
+        android:id="@+id/selectVideoFragment"
+        android:name="com.example.videocompression.SelectVideoFragment"
+        android:label="fragment_select_video"
+        tools:layout="@layout/fragment_select_video" >
+        <action
+            android:id="@+id/action_selectVideoFragment_to_compressVideoFragment"
+            app:destination="@id/compressVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/compressVideoFragment"
+        android:name="com.example.videocompression.CompressVideoFragment"
+        android:label="fragment_compress_video"
+        tools:layout="@layout/fragment_compress_video" >
+
+        <action
+            android:id="@+id/action_compressVideoFragment_to_videoFragment"
+            app:destination="@id/videoFragment"
+            app:popUpTo="@id/selectVideoFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.videocompression.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" >
+        <argument
+            android:name="videoUri"
+            app:argType="string" />
+    </fragment>
+</navigation>
